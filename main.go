@@ -1,10 +1,15 @@
 package main
 
-import "DiscreteAlgorithms/QuickAndMerge"
+import (
+	"DiscreteAlgorithms/ConsoleSearchAl"
+	"DiscreteAlgorithms/InsertionBinarySort"
+	"DiscreteAlgorithms/QuickAndMerge"
+	"DiscreteAlgorithms/ShellAndBubble"
+)
 
 func main() {
-	//ConsoleSearchAl.Test()
-	//InsertionBinarySort.Test()
+	ConsoleSearchAl.Test()
+	InsertionBinarySort.Test()
 	QuickAndMerge.Test()
-	//ShellAndBubble.Test()
+	ShellAndBubble.Test()
 }
