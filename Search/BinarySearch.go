@@ -5,16 +5,16 @@ func BinarySearch(slice []int, target int) int {
 	left, right := 0, len(slice)-1
 
 	for left <= right {
-		comparisons++
 		mid := left + (right-left)/2
+		comparisons++
 
 		if slice[mid] == target {
-			return mid
+			return comparisons // индекс и количество сравнений
 		} else if slice[mid] < target {
 			left = mid + 1
 		} else {
 			right = mid - 1
 		}
 	}
-	return comparisons
+	return comparisons // не найден и количество сравнений
 }
