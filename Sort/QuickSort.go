@@ -1,5 +1,10 @@
 package Sort
 
+/*
+Временная сложность – O(n log n)
+В худшем случае - O(n^2)
+*/
+
 func QuickSort(slice []int) int {
 	return quickSortParams(slice, 0, len(slice)-1)
 }

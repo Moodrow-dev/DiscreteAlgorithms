@@ -1,5 +1,10 @@
 package Sort
 
+/*
+Временная сложность – O(n log n)
+В худшем случае - O(n^2)
+*/
+
 func ShellSort(slice []int) int {
 	comparisonCount := 0
 	length := len(slice)

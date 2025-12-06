@@ -1,12 +1,16 @@
 package Sort
 
+/*
+Временная сложность – O(n^2)
+В лучшем случае – O(n)
+*/
+
 func BubbleSort(slice []int) int {
 	comparisonCount := 0
 	length := len(slice)
 
 	for i := 0; i < length-1; i++ {
 		swapped := false // Флаг, были ли перестановки на этом проходе
-
 		for j := 0; j < length-i-1; j++ {
 			comparisonCount++
 			if slice[j] > slice[j+1] {

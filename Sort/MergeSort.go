@@ -1,5 +1,10 @@
 package Sort
 
+/*
+Временная сложность – O(n log n)
+В худшем случае - O(n^2)
+*/
+
 func MergeSort(slice []int) int {
 	return mergeSortParams(slice, 0, len(slice)-1)
 }

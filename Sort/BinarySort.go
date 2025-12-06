@@ -1,5 +1,9 @@
 package Sort
 
+/*
+Временная сложность – O(log n)
+*/
+
 func BinarySort(slice []int) int {
 	comparisonCount := 0
 
