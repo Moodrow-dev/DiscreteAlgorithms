@@ -1,10 +1,8 @@
 package Sort
 
-/*
-Временная сложность – O(n log n)
-В худшем случае - O(n^2)
-*/
+import "log"
 
+// QuickSort – быстрая сортировка, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
 func QuickSort(slice []int) int {
 	return quickSortParams(slice, 0, len(slice)-1)
 }
@@ -44,5 +42,6 @@ func quickSortParams(slice []int, low, high int) int {
 	if high > i {
 		comparisonCount += quickSortParams(slice, i, high)
 	}
+	log.Println("Быстрая сортировка: ", slice)
 	return comparisonCount
 }

@@ -1,10 +1,13 @@
 package Sort
 
+import "log"
+
 /*
 Временная сложность – O(n log n)
 В худшем случае - O(n^2)
 */
 
+// ShellSort – сортировка Шелла, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
 func ShellSort(slice []int) int {
 	comparisonCount := 0
 	length := len(slice)
@@ -23,5 +26,6 @@ func ShellSort(slice []int) int {
 		}
 		step /= 2
 	}
+	log.Println("Сортировка Шелла: ", slice)
 	return comparisonCount
 }

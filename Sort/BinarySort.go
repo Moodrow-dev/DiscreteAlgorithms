@@ -1,9 +1,10 @@
 package Sort
 
-/*
-Временная сложность – O(log n)
-*/
+import (
+	"log"
+)
 
+// BinarySort - бинарная сортировка, средняя сложность алгоритма O(log n)
 func BinarySort(slice []int) int {
 	comparisonCount := 0
 
@@ -25,5 +26,6 @@ func BinarySort(slice []int) int {
 		}
 		slice[left] = key
 	}
+	log.Println("Бинарная сортировка: ", slice)
 	return comparisonCount
 }

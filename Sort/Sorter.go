@@ -3,8 +3,12 @@ package Sort
 import "fmt"
 
 func Compare(slice []int, sort1 func([]int) int, sort2 func([]int) int) {
-	iter1 := sort1(slice)
-	iter2 := sort2(slice)
+	slice1 := make([]int, len(slice))
+	slice2 := make([]int, len(slice))
+	copy(slice1, slice)
+	copy(slice2, slice)
+	iter1 := sort1(slice1)
+	iter2 := sort2(slice2)
 	fmt.Println(slice)
 	fmt.Println(iter1, "сравнений vs ", iter2, " сравнений")
 	if iter1 < iter2 {

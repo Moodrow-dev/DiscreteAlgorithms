@@ -1,10 +1,8 @@
 package Sort
 
-/*
-Временная сложность – O(n^2)
-В лучшем случае – O(n)
-*/
+import "log"
 
+// BubbleSort – пузырьковая сортировка, средняя сложность алгоритма O(n^2), в лучшем случае O(n)
 func BubbleSort(slice []int) int {
 	comparisonCount := 0
 	length := len(slice)
@@ -24,5 +22,6 @@ func BubbleSort(slice []int) int {
 			break
 		}
 	}
+	log.Println("Пузырьковая сортировка: ", slice)
 	return comparisonCount
 }

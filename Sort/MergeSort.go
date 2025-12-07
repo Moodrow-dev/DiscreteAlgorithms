@@ -1,10 +1,8 @@
 package Sort
 
-/*
-Временная сложность – O(n log n)
-В худшем случае - O(n^2)
-*/
+import "log"
 
+// MergeSort – сортировка слияниями, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
 func MergeSort(slice []int) int {
 	return mergeSortParams(slice, 0, len(slice)-1)
 }
@@ -61,5 +59,6 @@ func merge(slice []int, left, mid, right int) int {
 		rightIndex++
 		mainIndex++
 	}
+	log.Println("Сортировка слиянием: ", slice)
 	return comparisonCount
 }

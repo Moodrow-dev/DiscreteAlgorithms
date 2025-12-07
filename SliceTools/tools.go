@@ -1,6 +1,9 @@
 package SliceTools
 
-import "math/rand"
+import (
+	"log"
+	"math/rand"
+)
 
 var (
 	ZeroItemSlice = []int{}  // Нулевой слайс
@@ -13,6 +16,7 @@ func GenerateRandomSlice(size int) []int {
 	for i := 0; i < size; i++ {
 		slice[i] = rand.Intn(size)
 	}
+	log.Println("Случайный массив:", slice)
 	return slice
 }
 
@@ -22,6 +26,7 @@ func GenerateSortedSlice(size int) []int {
 	for i := 0; i < size; i++ {
 		slice[i] = i
 	}
+	log.Println("Сортированный массив: ", slice)
 	return slice
 }
 
@@ -31,5 +36,6 @@ func GenerateReversedSlice(size int) []int {
 	for i := 0; i < size; i++ {
 		slice[i] = size - i - 1
 	}
+	log.Println("Сортированный по убыванию массив: ", slice)
 	return slice
 }
