@@ -3,8 +3,6 @@ package main
 import (
 	"DiscreteAlgorithms/SliceTools"
 	"DiscreteAlgorithms/Sort"
-	"fmt"
-	"math"
 )
 
 func main() {
@@ -15,20 +13,20 @@ func main() {
 	//sortSlice := []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
 	//
 	//Sort.Compare(sortSlice, Sort.QuickSort, Sort.BinarySort)
+
 	Sort.Compare(
 		SliceTools.GenerateRandomSlice(10),
-		Sort.BubbleSort,
+		Sort.InsertionBinarySort,
 		Sort.InsertionSort,
 	)
 	Sort.Compare(
 		SliceTools.GenerateSortedSlice(10),
-		Sort.BubbleSort,
+		Sort.InsertionBinarySort,
 		Sort.InsertionSort,
 	)
 	Sort.Compare(
 		SliceTools.GenerateReversedSlice(10),
-		Sort.BubbleSort,
+		Sort.InsertionBinarySort,
 		Sort.InsertionSort,
 	)
-	fmt.Println(math.Pow(10, 2))
 }

@@ -29,19 +29,25 @@ func InsertionSort(slice []int) int {
 	return comparisonCount
 }
 
-// InsertionBinarySort – сортировка вставками с бинарным поиском, средняя сложность алгоритма O(log n)
+// InsertionBinarySort – сортировка вставками с бинарным поиском, средняя сложность алгоритма O(n log n)
 func InsertionBinarySort(slice []int) int {
 	comparisonCount := 0
 	for i := 1; i < len(slice); i++ {
 		key := slice[i]
 
 		// Бинарный поиск позиции для вставки
+		//fmt.Println(slice[0:i], key)
 		comparison, index := Search.BinarySearch(slice[0:i], key)
 		comparisonCount += comparison
 
+		if index < 0 {
+			index = 0
+		}
+
 		// Если бинарный поиск возвращает позицию существующего элемента,
 		// вставляем после него (для стабильности сортировки)
-		if index < i && slice[index] <= key {
+		// Ищем позицию после всех элементов <= key
+		for index < i && slice[index] <= key {
 			index++
 		}
 
