@@ -2,9 +2,15 @@ package Sort
 
 import "log"
 
+type BubbleSort struct {
+	Slice []int
+	Sortable
+}
+
 // BubbleSort – пузырьковая сортировка, средняя сложность алгоритма O(n^2), в лучшем случае O(n)
-func BubbleSort(slice []int) int {
+func (bs BubbleSort) Sort() int {
 	comparisonCount := 0
+	slice := bs.Slice
 	length := len(slice)
 
 	for i := 0; i < length-1; i++ {
@@ -24,4 +30,12 @@ func BubbleSort(slice []int) int {
 	}
 	log.Println("Пузырьковая сортировка: ", slice)
 	return comparisonCount
+}
+
+func (bs BubbleSort) GetSortComplexity() string {
+	return "O(n^2), O(n) лучшая"
+}
+
+func (bs BubbleSort) GetSlice() []int {
+	return bs.Slice
 }

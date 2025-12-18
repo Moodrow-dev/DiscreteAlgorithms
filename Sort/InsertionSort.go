@@ -5,9 +5,20 @@ import (
 	"log"
 )
 
+type InsertionSort struct {
+	Slice []int
+	Sortable
+}
+
+type InsertionBinarySort struct {
+	Slice []int
+	Sortable
+}
+
 // InsertionSort – сортировка вставками, средняя сложность алгоритма O(n^2), в лучшем случае O(n)
-func InsertionSort(slice []int) int {
+func (is InsertionSort) Sort() int {
 	comparisonCount := 0
+	slice := is.Slice
 	for i := 1; i < len(slice); i++ {
 		key := slice[i]
 		j := i - 1
@@ -30,8 +41,9 @@ func InsertionSort(slice []int) int {
 }
 
 // InsertionBinarySort – сортировка вставками с бинарным поиском, средняя сложность алгоритма O(n log n)
-func InsertionBinarySort(slice []int) int {
+func (ibs InsertionBinarySort) Sort() int {
 	comparisonCount := 0
+	slice := ibs.Slice
 	for i := 1; i < len(slice); i++ {
 		key := slice[i]
 
@@ -60,4 +72,20 @@ func InsertionBinarySort(slice []int) int {
 	}
 	log.Println("Сортировка вставками с бинарным поиском: ", slice)
 	return comparisonCount
+}
+
+func (is InsertionSort) GetSortComplexity() string {
+	return "O(n^2)"
+}
+
+func (ibs InsertionBinarySort) GetSortComplexity() string {
+	return "O(n log n)"
+}
+
+func (is InsertionSort) GetSlice() []int {
+	return is.Slice
+}
+
+func (ibs InsertionBinarySort) GetSlice() []int {
+	return ibs.Slice
 }

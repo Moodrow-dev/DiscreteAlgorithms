@@ -2,13 +2,21 @@ package Sort
 
 import "log"
 
-// QuickSort – быстрая сортировка, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
-func QuickSort(slice []int) int {
-	return quickSortParams(slice, 0, len(slice)-1)
+type QuickSort struct {
+	Slice []int
+	Sortable
 }
 
-func quickSortParams(slice []int, low, high int) int {
+// QuickSort – быстрая сортировка, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
+func (qs QuickSort) Sort() int {
+	params := qs.quickSortParams(0, len(qs.Slice)-1)
+	log.Println("Быстрая сортировка: ", qs.Slice)
+	return params
+}
+
+func (qs QuickSort) quickSortParams(low, high int) int {
 	comparisonCount := 0
+	slice := qs.Slice
 
 	if len(slice) == 0 || low >= high {
 		return comparisonCount
@@ -37,11 +45,18 @@ func quickSortParams(slice []int, low, high int) int {
 	}
 
 	if low < j {
-		comparisonCount += quickSortParams(slice, low, j)
+		comparisonCount += qs.quickSortParams(low, j)
 	}
 	if high > i {
-		comparisonCount += quickSortParams(slice, i, high)
+		comparisonCount += qs.quickSortParams(i, high)
 	}
-	log.Println("Быстрая сортировка: ", slice)
 	return comparisonCount
+}
+
+func (qs QuickSort) GetSortComplexity() string {
+	return "O(n log n), O(n^2) худшая"
+}
+
+func (qs QuickSort) GetSlice() []int {
+	return qs.Slice
 }

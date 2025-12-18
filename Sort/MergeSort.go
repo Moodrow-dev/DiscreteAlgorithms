@@ -2,26 +2,35 @@ package Sort
 
 import "log"
 
-// MergeSort – сортировка слияниями, средняя сложность алгоритма O(n log n), в худшем случае O(n^2)
-func MergeSort(slice []int) int {
-	return mergeSortParams(slice, 0, len(slice)-1)
+type MergeSort struct {
+	Slice []int
+	Sortable
 }
 
-func mergeSortParams(slice []int, left, right int) int {
+// MergeSort – сортировка слияниями, средняя сложность алгоритма O(n log n)
+func (ms MergeSort) Sort() int {
+	params := ms.mergeSortParams(0, len(ms.Slice)-1)
+	log.Println("Сортировка слиянием: ", ms.Slice)
+	return params
+}
+
+func (ms MergeSort) mergeSortParams(left, right int) int {
 	comparisonCount := 0
 	if left < right {
 		mid := (left + right) / 2
 
-		comparisonCount += mergeSortParams(slice, left, mid)
-		comparisonCount += mergeSortParams(slice, mid+1, right)
+		comparisonCount += ms.mergeSortParams(left, mid)
+		comparisonCount += ms.mergeSortParams(mid+1, right)
 
-		comparisonCount += merge(slice, left, mid, right)
+		comparisonCount += ms.merge(left, mid, right)
 	}
 	return comparisonCount
 }
 
-func merge(slice []int, left, mid, right int) int {
+func (ms MergeSort) merge(left, mid, right int) int {
 	comparisonCount := 0
+
+	slice := ms.Slice
 
 	leftSlice := make([]int, mid-left+1)
 	rightSlice := make([]int, right-mid)
@@ -59,6 +68,13 @@ func merge(slice []int, left, mid, right int) int {
 		rightIndex++
 		mainIndex++
 	}
-	log.Println("Сортировка слиянием: ", slice)
 	return comparisonCount
+}
+
+func (ms MergeSort) GetSortComplexity() string {
+	return "O(n log n)"
+}
+
+func (ms MergeSort) GetSlice() []int {
+	return ms.Slice
 }

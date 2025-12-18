@@ -4,9 +4,16 @@ import (
 	"log"
 )
 
+type BinarySort struct {
+	Slice []int
+	Sortable
+}
+
 // BinarySort - бинарная сортировка, средняя сложность алгоритма O(log n)
-func BinarySort(slice []int) int {
+func (bs BinarySort) Sort() int {
 	comparisonCount := 0
+
+	slice := bs.Slice
 
 	for i := 1; i < len(slice); i++ {
 		key := slice[i]
@@ -28,4 +35,12 @@ func BinarySort(slice []int) int {
 	}
 	log.Println("Бинарная сортировка: ", slice)
 	return comparisonCount
+}
+
+func (bs BinarySort) GetSortComplexity() string {
+	return "O(log n)"
+}
+
+func (bs BinarySort) GetSlice() []int {
+	return bs.Slice
 }

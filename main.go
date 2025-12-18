@@ -14,19 +14,34 @@ func main() {
 	//
 	//Sort.Compare(sortSlice, Sort.QuickSort, Sort.BinarySort)
 
-	Sort.Compare(
-		SliceTools.GenerateRandomSlice(10),
-		Sort.InsertionBinarySort,
-		Sort.InsertionSort,
-	)
-	Sort.Compare(
-		SliceTools.GenerateSortedSlice(10),
-		Sort.InsertionBinarySort,
-		Sort.InsertionSort,
-	)
-	Sort.Compare(
-		SliceTools.GenerateReversedSlice(10),
-		Sort.InsertionBinarySort,
-		Sort.InsertionSort,
-	)
+	//Sort.Compare(
+	//	SliceTools.GenerateRandomSlice(10),
+	//	Sort.InsertionBinarySort,
+	//	Sort.InsertionSort,
+	//)
+	//Sort.Compare(
+	//	SliceTools.GenerateSortedSlice(10),
+	//	Sort.InsertionBinarySort,
+	//	Sort.InsertionSort,
+	//)
+	//Sort.Compare(
+	//	SliceTools.GenerateReversedSlice(10),
+	//	Sort.InsertionBinarySort,
+	//	Sort.InsertionSort,
+	//)
+	const SliceLength = 10
+
+	slice := SliceTools.GenerateRandomSlice(SliceLength)
+	//slice := SliceTools.GenerateSortedSlice(SliceLength)
+	//slice := SliceTools.GenerateReversedSlice(SliceLength)
+
+	//sort1 := Sort.InsertionBinarySort{Slice: append([]int{}, slice...)}
+	//
+	//sort2 := Sort.InsertionSort{Slice: append([]int{}, slice...)}
+
+	sort1 := Sort.QuickSort{Slice: append([]int{}, slice...)}
+
+	sort2 := Sort.MergeSort{Slice: append([]int{}, slice...)}
+
+	Sort.Compare(sort1, sort2)
 }
